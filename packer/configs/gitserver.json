@@ -1,0 +1,7 @@
+{
+  "version": "latest",
+  "role": "gitserver",
+  "env": "docker",
+  "repo": "gitserver",
+  "git_project": "test"
+}

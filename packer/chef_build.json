@@ -1,0 +1,57 @@
+{
+  "variables": {
+    "repo": "",
+    "version": "",
+    "distro": "trusty",
+    "chef_server": "",
+    "chef_validation_key": "{{env `CHEF_VALIDATION_KEY` }}",
+    "chef_client_name": "{{env `CHEF_CLIENT_NAME` }}",
+    "docker_account": "",
+    "docker_user": "{{env `DOCKER_USER`}}",
+    "docker_passwd": "{{env `DOCKER_PASSWORD`}}"
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "image": "ubuntu:{{user `distro`}}",
+      "commit": true,
+      "changes": [
+        "CMD service nginx start"
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+        "type": "shell",
+        "inline": [
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -L https://www.chef.io/chef/install.sh | sudo bash"
+        ]
+    },
+    {
+        "type": "chef-client",
+        "server_url": "{{user `chef_server`}}",
+        "chef_environment": "{{user `env`}}",
+        "run_list": "role[{{user `role`}}]",
+        "ssl_verify_mode": "verify_none",
+        "validation_key_path": "{{user `chef_validation_key` }}",
+        "validation_client_name": "{{user `chef_client_name` }}"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-tag",
+        "repository": "{{user `docker_account` }}/{{user `repo`}}",
+        "tag": "{{user `version`}}"
+      },
+      {
+        "type": "docker-push",
+        "login": true,
+        "login_username": "{{user `docker_user`}}",
+        "login_password": "{{user `docker_passwd`}}"
+      }
+    ]
+  ]
+}

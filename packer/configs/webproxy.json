@@ -1,0 +1,6 @@
+{
+  "version": "latest",
+  "role": "webproxy",
+  "env": "docker",
+  "repo": "webproxy"
+}
