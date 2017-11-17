@@ -1,0 +1,20 @@
+{
+  "name": "bootstrap",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "git_keys": [
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCny0fKd9kp2gDAJrN5nXJhMMzjRFFlCVp7Snt7AjjqrdjvR0/ndfKdAUSACHe4yI4f6EiPEoH4TZfz2a67jzqK+7PmoiWlVTQSFD5PtMEz13p5V0JhkqgCOSav/dcNx3STpduHdKrYqDw1GRx0bk8jQfROWNI48Gzgq+YpB0KQsdgDaxVTidHi5iSfKy5mJ1Kn2D3pRX73JgR5Dh3TyX/b36GSPK5vPjVbpF52CH4CblmeGKfO/9WtuJr1r6l5CVM9P8/s3kBUZVn5p1bwsrrJedej/4sNT3luhYCHVDWetfJUmfSuvrnyTsj0X2Q3T5yAFpG44RejAvlsg81l4irP darnold@Daves-Air"
+    ]
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+      "recipe[gitserver]",
+      "recipe[docker]"
+  ],
+  "env_run_lists": {
+
+  }
+}
