@@ -1,2 +1,2 @@
 # BootStrap
-![Alt text](assets/bootstrap.jpg?raw=true "BootStrap")
+![Boot Strap Diagram](assets/bootstrap.png?raw=true "BootStrap")
