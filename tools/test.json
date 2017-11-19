@@ -1,0 +1,15 @@
+{
+  "env": "json",
+  "vpc": "vpc-5254d42a",
+  "subnet": "subnet-3decea31",
+  "zone": "f",
+  "region": "us-east-1",
+  "managers": {
+    "instance_type": "t2.micro",
+    "count": 3
+  },
+  "slaves": {
+    "instance_type": "t2.micro",
+    "count": 3
+  }
+} 

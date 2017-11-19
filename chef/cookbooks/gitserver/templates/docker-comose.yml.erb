@@ -1,0 +1,10 @@
+version: '3'
+services:
+  gitweb:
+    image: elektret/gitweb-small
+    ports:
+      - "8080:80"
+  	volumes:
+      <% node[:git_projects].each do |git_project| %>
+      - /opt/git/<%= git_project %>.git/:/home/gitweb/repos/<%= git_project %>.git
+      <% end %>

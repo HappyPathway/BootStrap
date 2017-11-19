@@ -30,14 +30,21 @@ end
 
 
 node[:git_projects].each do |gp|
-	directory "#{node[:git_home]}/#{gp}.git" do
+	directory "#{node[:git_home]}/#{gp[:name]}.git" do
 		owner "git"
 		mode "0755"
 	end
 
 	execute "git init" do
 		command "git init --bare --shared"
-		cwd "#{node[:git_home]}/#{gp}.git"
+		cwd "#{node[:git_home]}/#{gp[:name]}.git"
+	end
+
+	file "#{node[:git_home]}/#{gp[:name]}.git/description" do
+  		content "#{gp[:description]}"
+  		mode '0755'
+  		owner 'git'
+  		group 'git'
 	end
 end
 
@@ -61,4 +68,8 @@ end
 
 execute "chown -R git #{node[:git_home]}" do
 	command "chown -R git #{node[:git_home]}"
+end
+
+template "#{node[:git_home]}/gitweb.yml" do
+	source "gitweb.yml.erb"
 end
