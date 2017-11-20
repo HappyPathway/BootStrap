@@ -1,5 +1,5 @@
 {
-  "env": "json",
+  "env": "travis",
   "vpc": "vpc-5254d42a",
   "subnet": "subnet-3decea31",
   "zone": "f",
