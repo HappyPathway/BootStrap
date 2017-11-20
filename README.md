@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/HappyPathway/BootStrap.svg?branch=master)
+# Build: ![Build Status](https://travis-ci.org/HappyPathway/BootStrap.svg?branch=master)
 
 # BootStrap
 ![Boot Strap Diagram](assets/bootstrap.png?raw=true "BootStrap")
