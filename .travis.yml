@@ -3,6 +3,6 @@ language: python
 services:
   - docker
 
-install:
+script:
   - pip install -r tools/requirements.txt
   - python tools/swarm.py --help
